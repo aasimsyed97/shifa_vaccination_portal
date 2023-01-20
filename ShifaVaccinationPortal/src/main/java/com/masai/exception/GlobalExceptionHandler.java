@@ -26,6 +26,19 @@ public class GlobalExceptionHandler {
 	
 
 	
+	@ExceptionHandler(VaccinationCenterException.class)
+	public ResponseEntity<MyErrorDetails> VaccinationCenterExpHandler(VaccinationCenterException ie,WebRequest req){
+		
+		
+		MyErrorDetails err = new MyErrorDetails();
+		err.setTimestamp(LocalDateTime.now());
+		err.setMessage(ie.getMessage());
+		err.setDetails(req.getDescription(false));
+		
+		
+		return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
+		
+	}
 	
 
 	

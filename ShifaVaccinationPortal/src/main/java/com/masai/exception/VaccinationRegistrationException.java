@@ -2,7 +2,7 @@ package com.masai.exception;
 
 public class VaccinationRegistrationException extends RuntimeException{
 	
-	public VactionRegistrationException() {
+	public VaccinationRegistrationException() {
 		// TODO Auto-generated constructor stub
 	}
 	

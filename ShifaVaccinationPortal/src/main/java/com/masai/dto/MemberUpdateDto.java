@@ -3,34 +3,33 @@ package com.masai.dto;
 import java.time.LocalDate;
 import java.util.Date;
 
+import com.masai.enums.Gender;
+
 public class MemberUpdateDto {
 
-	
-	
-	//@Size(min = 2, max = 20, message = "{user.invalid.Name}")
+	// @Size(min = 2, max = 20, message = "{user.invalid.Name}")
 	private String Name;
-	
-	private LocalDate DateOfBirth ;
-	
-	private String gender;
-	
-	//@Size(min = 2, max = 20, message = "{user.invalid.Address}")
-	private String Address ;
-	
-	//@Size(min = 2, max = 20, message = "{user.invalid.City}")
-	private String city ;
-	
-	//@Size(min = 2, max = 20, message = "{user.invalid.State}")
-	private String State ;
+
+	private LocalDate DateOfBirth;
+
+	private Gender gender;
+
+	// @Size(min = 2, max = 20, message = "{user.invalid.Address}")
+	private String Address;
+
+	// @Size(min = 2, max = 20, message = "{user.invalid.City}")
+	private String city;
+
+	// @Size(min = 2, max = 20, message = "{user.invalid.State}")
+	private String State;
 
 	public MemberUpdateDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public MemberUpdateDto(String name, LocalDate dateOfBirth, String gender, String address, String city, String state) {
+	public MemberUpdateDto(String name, LocalDate dateOfBirth, Gender gender, String address, String city,
+			String state) {
 		super();
 		Name = name;
 		DateOfBirth = dateOfBirth;
@@ -40,19 +39,13 @@ public class MemberUpdateDto {
 		State = state;
 	}
 
-
-
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-
-
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-
-
 
 	public String getName() {
 		return Name;
@@ -69,8 +62,6 @@ public class MemberUpdateDto {
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		DateOfBirth = dateOfBirth;
 	}
-
-	
 
 	public String getAddress() {
 		return Address;
@@ -96,14 +87,10 @@ public class MemberUpdateDto {
 		State = state;
 	}
 
-
-
 	@Override
 	public String toString() {
 		return "MemberUpdateDto [Name=" + Name + ", DateOfBirth=" + DateOfBirth + ", gender=" + gender + ", Address="
 				+ Address + ", city=" + city + ", State=" + State + "]";
-	} 
-	
-	
-	
+	}
+
 }

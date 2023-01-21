@@ -123,7 +123,7 @@ public class MemberServicesImpl implements MemberServices{
 			mm.getIdcard().setName(MemberUpdateDto.getName());
 			mm.getIdcard().setAddress(MemberUpdateDto.getAddress());
 			mm.getIdcard().setCity(MemberUpdateDto.getCity());
-			mm.getIdcard().setDob(MemberUpdateDto.getDateOfBirth());;
+			mm.getIdcard().setDateOfBirth(MemberUpdateDto.getDateOfBirth());;
 			mm.getIdcard().setGender(MemberUpdateDto.getGender());
 			mm.getIdcard().setState(MemberUpdateDto.getState());
 			

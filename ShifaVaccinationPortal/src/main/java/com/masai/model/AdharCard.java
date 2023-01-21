@@ -17,8 +17,8 @@ import com.masai.enums.Iris;
 @Entity
 public class AdharCard {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int adharId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer adharId;
 
 	// @Pattern(regexp = "^[0-9]{12}", message = "{user.invalid.adharNo}")
 	@Column(unique = true)
@@ -42,7 +42,7 @@ public class AdharCard {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AdharCard(int adharId, String adharNo, Fingerprint fringerprints, Iris irisscan, IdCard idCard) {
+	public AdharCard(Integer adharId, String adharNo, Fingerprint fringerprints, Iris irisscan, IdCard idCard) {
 		super();
 		this.adharId = adharId;
 		this.adharNo = adharNo;
@@ -51,11 +51,11 @@ public class AdharCard {
 		this.idCard = idCard;
 	}
 
-	public int getAdharId() {
+	public Integer getAdharId() {
 		return adharId;
 	}
 
-	public void setAdharId(int adharId) {
+	public void setAdharId(Integer adharId) {
 		this.adharId = adharId;
 	}
 

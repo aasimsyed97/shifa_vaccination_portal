@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,18 +21,21 @@ import javax.persistence.OneToOne;
 @Entity
 public class VaccineCount {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+     @Id
+     @GeneratedValue(strategy = GenerationType.AUTO)
      private Integer vcId;
+    
 	 private Integer quantity;
+	 
 	 private Double price;
 	 
 	 
-	 @OneToOne
+	 @OneToOne(cascade = CascadeType.ALL) 
+	 @JsonIgnore
 	 private Vaccine vaccine;
-	 
-	 @OneToMany(mappedBy="vaccinecount" , cascade = CascadeType.ALL)
-	 private List<VaccineInventory> inventoryList = new ArrayList<VaccineInventory>() ;
+//	 
+//	 @OneToMany(mappedBy="vaccinecount" , cascade = CascadeType.ALL)
+//	 private List<VaccineInventory> inventoryList = new ArrayList<VaccineInventory>() ;
 
 	public VaccineCount() {
 		super();
@@ -39,15 +44,17 @@ public class VaccineCount {
 
 
 
-	public VaccineCount(Integer vcId, Integer quantity, Double price, Vaccine vaccine,
-			List<VaccineInventory> inventoryList) {
-		super();
-		this.vcId = vcId;
-		this.quantity = quantity;
-		this.price = price;
-		this.vaccine = vaccine;
-		this.inventoryList = inventoryList;
-	}
+	
+
+	public VaccineCount(Integer vcId, Integer quantity, Double price, Vaccine vaccine) {
+	super();
+	this.vcId = vcId;
+	this.quantity = quantity;
+	this.price = price;
+	this.vaccine = vaccine;
+}
+
+
 
 
 
@@ -86,22 +93,25 @@ public class VaccineCount {
 	public void setVaccine(Vaccine vaccine) {
 		this.vaccine = vaccine;
 	}
+//
+//	public List<VaccineInventory> getInventoryList() {
+//		return inventoryList;
+//	}
+//
+//	public void setInventoryList(List<VaccineInventory> inventoryList) {
+//		this.inventoryList = inventoryList;
+//	}
 
-	public List<VaccineInventory> getInventoryList() {
-		return inventoryList;
-	}
 
-	public void setInventoryList(List<VaccineInventory> inventoryList) {
-		this.inventoryList = inventoryList;
-	}
+
+
 
 	@Override
 	public String toString() {
-		return "VaccineCount [quantity=" + quantity + ", price=" + price + ", vaccine=" + vaccine + ", inventoryList="
-				+ inventoryList + "]";
+		return "VaccineCount [vcId=" + vcId + ", quantity=" + quantity + ", price=" + price + ", vaccine=" + vaccine
+				+ "]";
 	}
-	 
-	 
+
 	 
     
 

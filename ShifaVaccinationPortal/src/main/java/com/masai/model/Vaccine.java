@@ -11,10 +11,12 @@ public class Vaccine {
  
          @Id
          @GeneratedValue(strategy= GenerationType.AUTO)
-	  private Integer vaccineId;
+	      private Integer vaccineId;
 	 
-        private String vaccninName;
-     	private String description;
+          private String vaccninName;
+        
+        
+     	  private String description;
      	
      	@OneToOne(cascade = CascadeType.ALL)
      	private VaccineCount vaccineCount;

@@ -9,12 +9,16 @@ import org.springframework.stereotype.Repository;
 
 import com.masai.model.Member;
 
-
 @Repository
 public interface MemberRepo extends JpaRepository<Member, Integer>{
+	
+@Query("from Member where idCard.Id=:idcardid")
+public Member findByidCard(@Param("idcardid") int idcardid);
 
+@Query("from Member where idCard.adharCard.adharNo=:adarno")
+public Member findByAdharcardNo(@Param("adarno") String adarno);
+
+@Query("from Member where idCard.panCard.panNo=:panno")
+public Member findByPanNo(@Param("panno") String panno);
 
 }
-
-
-

@@ -1,15 +1,17 @@
 package com.masai.exception;
 
-public class AppointmentException extends RuntimeException{
+public class AdminException extends RuntimeException {
 
-	public AppointmentException() {
+	public AdminException() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public AppointmentException(String message) {
+	public AdminException(String message) {
 		super(message);
 		// TODO Auto-generated constructor stub
 	}
-
+ 
+	
+	
 }

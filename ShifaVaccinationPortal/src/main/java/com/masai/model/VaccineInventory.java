@@ -1,27 +1,36 @@
 package com.masai.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
 public class VaccineInventory {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
+   private int vaccineInventoryId;
+   
 	private LocalDate date; 
 	
-	@ManyToOne
-	private  VaccineCount vaccinecount;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<VaccineCount> vaccineCount;
 	
 	
-	@OneToOne 
-	private VaccinationCenter vaccinationcenter;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
+	private VaccinationCenter VaccinationCenter;
 
 
 	public VaccineInventory() {
@@ -30,11 +39,23 @@ public class VaccineInventory {
 	}
 
 
-	public VaccineInventory(LocalDate date, VaccineCount vaccinecount, VaccinationCenter vaccinationcenter) {
+	public VaccineInventory(int vaccineInventoryId, LocalDate date, List<VaccineCount> vaccineCount,
+			com.masai.model.VaccinationCenter vaccinationCenter) {
 		super();
+		this.vaccineInventoryId = vaccineInventoryId;
 		this.date = date;
-		this.vaccinecount = vaccinecount;
-		this.vaccinationcenter = vaccinationcenter;
+		this.vaccineCount = vaccineCount;
+		VaccinationCenter = vaccinationCenter;
+	}
+
+
+	public int getVaccineInventoryId() {
+		return vaccineInventoryId;
+	}
+
+
+	public void setVaccineInventoryId(int vaccineInventoryId) {
+		this.vaccineInventoryId = vaccineInventoryId;
 	}
 
 
@@ -48,31 +69,32 @@ public class VaccineInventory {
 	}
 
 
-	public VaccineCount getVaccinecount() {
-		return vaccinecount;
+	public List<VaccineCount> getVaccineCount() {
+		return vaccineCount;
 	}
 
 
-	public void setVaccinecount(VaccineCount vaccinecount) {
-		this.vaccinecount = vaccinecount;
+	public void setVaccineCount(List<VaccineCount> vaccineCount) {
+		this.vaccineCount = vaccineCount;
 	}
 
 
-	public VaccinationCenter getVaccinationcenter() {
-		return vaccinationcenter;
+	public VaccinationCenter getVaccinationCenter() {
+		return VaccinationCenter;
 	}
 
 
-	public void setVaccinationcenter(VaccinationCenter vaccinationcenter) {
-		this.vaccinationcenter = vaccinationcenter;
+	public void setVaccinationCenter(VaccinationCenter vaccinationCenter) {
+		VaccinationCenter = vaccinationCenter;
 	}
 
 
 	@Override
 	public String toString() {
-		return "VaccineInventory [date=" + date + ", vaccinecount=" + vaccinecount + ", vaccinationcenter="
-				+ vaccinationcenter + "]";
-	} 
+		return "VaccineInventory [vaccineInventoryId=" + vaccineInventoryId + ", date=" + date + ", vaccineCount="
+				+ vaccineCount + ", VaccinationCenter=" + VaccinationCenter + "]";
+	}
+
 	
 	
 	

@@ -54,7 +54,7 @@ public class VaccinationServiceImpl  implements VaccinationCenterService{
 	@Override
 	public VaccinationCenter updateVaccinationCenter(VaccinationCenter center) throws VaccinationCenterException {
 		// TODO Auto-generated method stub 
-		  Optional<VaccinationCenter> opt = vcRepo.findById(center.getCode()); 
+		  Optional<VaccinationCenter> opt = vcRepo.findById(center.getVaccinationCentercode()); 
 	      if(opt.isPresent()) { 
 	    	  VaccinationCenter vc = vcRepo.save(center);
 	    	     
@@ -70,7 +70,7 @@ public class VaccinationServiceImpl  implements VaccinationCenterService{
 	@Override
 	public VaccinationCenter deleteVaccinationCenter(VaccinationCenter center) throws VaccinationCenterException {
 		// TODO Auto-generated method stub 
-		 Optional<VaccinationCenter> opt = vcRepo.findById(center.getCode()); 
+		 Optional<VaccinationCenter> opt = vcRepo.findById(center.getVaccinationCentercode()); 
 	      if(opt.isPresent()) { 
 	    	  VaccinationCenter vc = opt.get();
 	    	    vcRepo.delete(vc);

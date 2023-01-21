@@ -1,7 +1,7 @@
 package com.masai.service;
 
 import com.masai.exception.AppointmentException;
-import com.masai.module.Appointment;
+import com.masai.model.Appointment;
 
 public class AppointmentServicesImpl implements AppointmentServices{
     @Override

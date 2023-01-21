@@ -48,17 +48,6 @@ public class GlobalExceptionHandler {
 	
 	
 		
-		@ExceptionHandler(LoginException.class)
-		public ResponseEntity<MyErrorDetails> myAdminException(AdminException ie, WebRequest req){
-			
-			MyErrorDetails err = new MyErrorDetails();
-			err.setTimestamp(LocalDateTime.now());
-			err.setMessage(ie.getMessage());
-			err.setDetails(req.getDescription(false));
-			
-			return new ResponseEntity<MyErrorDetails>(err, HttpStatus.BAD_REQUEST);
-		}
-		
 	
 		
 		

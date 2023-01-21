@@ -45,44 +45,47 @@ public class MemberServicesImpl implements MemberServices{
 	
 	
 	@Override
-	public Member getMemberByld(String key, int idcardid) throws LoginException, MemberException, IdCardException {
-		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
-		if(loggedInUser!=null) {
-		if(loggedInUser.getAdmin()==false) {
-			Optional<IdCard> idCard = idCardRepo.findById(idcardid);
-			if(idCard.isEmpty()) {
-				throw new IdCardException("No ID card found with this card ID - "+idcardid);
-			}else {
-				Member mm = memberRepo.findByidCard(idcardid);
-				return mm;
-			}
-		}else{
-			throw new LoginException("Person logged in is a admin not member ");
-		}
-		}else {
-			throw new LoginException("To get the details login first ");
-		}
+	public Member getMemberByld(String key, Integer idcardid) throws LoginException, MemberException, IdCardException {
+//		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
+//		if(loggedInUser!=null) {
+//		if(loggedInUser.getAdmin()==false) {
+//			Optional<IdCard> idCard = idCardRepo.findById(idcardid);
+//			if(idCard.isEmpty()) {
+//				throw new IdCardException("No ID card found with this card ID - "+idcardid);
+//			}else {
+//				Member mm = memberRepo.findByidCard(idcardid);
+//				return mm;
+//			}
+//		}else{
+//			throw new LoginException("Person logged in is a admin not member ");
+//		}
+//		}else {
+//			throw new LoginException("To get the details login first ");
+//		} 
+		return null;
 	}
 
 	@Override
 	public Member getMemberByAdharNo(String adharno) throws MemberException,AdharCardException {
-		Member mm = memberRepo.findByAdharcardNo(adharno);
-		if (mm == null) {
-			throw new MemberException("No member found with this aadhaar card number ");
-		}else {
-			return mm;
-		}
+//		Member mm = memberRepo.findByAdharcardNo(adharno);
+//		if (mm == null) {
+//			throw new MemberException("No member found with this aadhaar card number ");
+//		}else {
+//			return mm;
+//		} 
+		return null;
 		
 	}
 
 	@Override
 	public Member getMemberByPanNo(String panNo) throws MemberException,PanCardException {
-		Member mm = memberRepo.findByPanNo(panNo);
-		if (mm == null) {
-			throw new MemberException("No member found with this aadhaar card number ");
-		}else {
-			return mm;
-		}
+//		Member mm = memberRepo.getFindByPanNo(panNo);
+//		if (mm == null) {
+//			throw new MemberException("No member found with this aadhaar card number ");
+//		}else {
+//			return mm;
+//		} 
+		return null;
 	}
 
 	@Override
@@ -112,56 +115,63 @@ public class MemberServicesImpl implements MemberServices{
 			throw new LoginException("To get the details login first ");
 		}
 	}
-
+ 
+	
+	 
+	
+	
 	@Override
-	public Member updateMember(String key,int idcardid, MemberUpdateDto MemberUpdateDto) throws LoginException, MemberException,VaccineRegistrationException,IdCardException  {
-		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
-		if(loggedInUser!=null) {
-			
-		if(loggedInUser.getAdmin()==false) {
-			Member mm = memberRepo.findByidCard(idcardid);
-			mm.getIdcard().setName(MemberUpdateDto.getName());
-			mm.getIdcard().setAddress(MemberUpdateDto.getAddress());
-			mm.getIdcard().setCity(MemberUpdateDto.getCity());
-			mm.getIdcard().setDateOfBirth(MemberUpdateDto.getDateOfBirth());;
-			mm.getIdcard().setGender(MemberUpdateDto.getGender());
-			mm.getIdcard().setState(MemberUpdateDto.getState());
-			
-			memberRepo.save(mm);
-			return mm;
-			
-			}else{
-			throw new LoginException("Person logged in is a admin");
-		}
-		
-		
-		}else {
-			throw new LoginException("To update the details login first ");
-		}
+	public Member updateMember(String key,Integer idcardid, MemberUpdateDto MemberUpdateDto) throws LoginException, MemberException,VaccineRegistrationException,IdCardException  {
+//		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
+//		if(loggedInUser!=null) {
+//			
+//		if(loggedInUser.getAdmin()==false) {
+//			Member mm = memberRepo.findByidCard(idcardid);
+//			mm.getIdcard().setName(MemberUpdateDto.getName());
+//			mm.getIdcard().setAddress(MemberUpdateDto.getAddress());
+//			mm.getIdcard().setCity(MemberUpdateDto.getCity());
+//			mm.getIdcard().setDateOfBirth(MemberUpdateDto.getDateOfBirth());;
+//			mm.getIdcard().setGender(MemberUpdateDto.getGender());
+//			mm.getIdcard().setState(MemberUpdateDto.getState());
+//			
+//			memberRepo.save(mm);
+//			return mm;
+//			
+//			}else{
+//			throw new LoginException("Person logged in is a admin");
+//		}
+//		
+//		
+//		}else {
+//			throw new LoginException("To update the details login first ");
+//		}
+		return null;
 	}
 
 	@Override
-	public Member deleteMember(String key,int idcardid) throws LoginException, MemberException,IdCardException,VaccineRegistrationException {
-		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
-		if(loggedInUser!=null) {
-			
-		if(loggedInUser.getAdmin()==false) {
-			Optional<VaccineRegistration> vaccineRegistration = vaccineRegistrationRepo.findById(loggedInUser.getUserId());
-			if(vaccineRegistration.isPresent()) {
-				Member mm = memberRepo.findByidCard(idcardid);
-				VaccineRegistration vr = vaccineRegistration.get();
-				vr.getMember().remove(mm);
-				memberRepo.delete(mm);
-				return mm;
-			}else {
-				throw new VaccineRegistrationException("No vaccine registration found ");
-			}
-			}else{
-			throw new LoginException("Person logged in is a admin");
-		}
-		}else {
-			throw new LoginException("To update the details login first ");
-		}
-	}
+	public Member deleteMember(String key,Integer idcardid) throws LoginException, MemberException,IdCardException,VaccineRegistrationException {
+//		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
+//		if(loggedInUser!=null) {
+//			
+//		if(loggedInUser.getAdmin()==false) {
+//			Optional<VaccineRegistration> vaccineRegistration = vaccineRegistrationRepo.findById(loggedInUser.getUserId());
+//			if(vaccineRegistration.isPresent()) {
+//				Member mm = memberRepo.findByidCard(idcardid);
+//				VaccineRegistration vr = vaccineRegistration.get();
+//				vr.getMember().remove(mm);
+//				memberRepo.delete(mm);
+//				return mm;
+//			}else {
+//				throw new VaccineRegistrationException("No vaccine registration found ");
+//			}
+//			}else{
+//			throw new LoginException("Person logged in is a admin");
+//		}
+//		}else {
+//			throw new LoginException("To update the details login first ");
+//		}
+//} 
+		return null;
 
+}
 }

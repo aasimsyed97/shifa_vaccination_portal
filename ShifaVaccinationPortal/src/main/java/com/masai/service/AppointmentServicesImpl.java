@@ -51,140 +51,144 @@ public class AppointmentServicesImpl implements AppointmentServices{
 	@Override
 	public Appointment addAppointment(Appointment app, String key, String adharNo,int vaccinationCentercode)
 			throws MemberException, AppointmentException, LoginException,VaccinationCenterException {
-		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
-		if(loggedInUser!=null) {
-		if(loggedInUser.getAdmin()==false) {
-			
-			
-			Member mm = memberRepo.findByAdharcardNo(adharNo);
-			if (mm == null) {
-				throw new MemberException("No member found with this aadhaar card number ");
-			}else {
-				VaccineRegistration vaccineRegistration = vaccineRegistrationRepo.findBymobileno(app.getMobileNo());
-				if(vaccineRegistration.getMember().contains(mm)) {
-					
-					
-					if(mm.isDose1status()) {
-						mm.setDose2status(app.isBookingstatus());
-					}else {
-						mm.setDose1date(app.getDatofbooking());
-						mm.setDose1status(app.isBookingstatus());
-						mm.setDose2date(app.getDatofbooking().plusMonths(3));
-					}
-					memberRepo.save(mm);
-					app.setMember(mm);
-					Optional<VaccinationCenter> vc = vaccinationCenterRepo.findById(vaccinationCentercode);
-					if(vc.isPresent()) {
-						app.setVaccinationcenter(vc.get());
-						vc.get().getAppointments().add(app);
-						appointmentRepo.save(app);
-						return app;
-					}else {
-						throw new VaccinationCenterException("No vaccination center found with this vaccination center code ");
-					}
-				}else {
-					throw new MemberException("Invalid mobile number ");	
-				}
-			}
-		}else{
-			throw new LoginException("Person logged in is a admin not member ");
-		}
-		}else {
-			throw new LoginException("To book appointment login first ");
-		}
+//		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
+//		if(loggedInUser!=null) {
+//		if(loggedInUser.getAdmin()==false) {
+//			
+//			
+//			Member mm = memberRepo.findByAdharcardNo(adharNo);
+//			if (mm == null) {
+//				throw new MemberException("No member found with this aadhaar card number ");
+//			}else {
+//				VaccineRegistration vaccineRegistration = vaccineRegistrationRepo.findBymobileno(app.getMobileNo());
+//				if(vaccineRegistration.getMember().contains(mm)) {
+//					
+//					
+//					if(mm.isDose1status()) {
+//						mm.setDose2status(app.isBookingstatus());
+//					}else {
+//						mm.setDose1date(app.getDatofbooking());
+//						mm.setDose1status(app.isBookingstatus());
+//						mm.setDose2date(app.getDatofbooking().plusMonths(3));
+//					}
+//					memberRepo.save(mm);
+//					app.setMember(mm);
+//					Optional<VaccinationCenter> vc = vaccinationCenterRepo.findById(vaccinationCentercode);
+//					if(vc.isPresent()) {
+//						app.setVaccinationcenter(vc.get());
+//						vc.get().getAppointments().add(app);
+//						appointmentRepo.save(app);
+//						return app;
+//					}else {
+//						throw new VaccinationCenterException("No vaccination center found with this vaccination center code ");
+//					}
+//				}else {
+//					throw new MemberException("Invalid mobile number ");	
+//				}
+//			}
+//		}else{
+//			throw new LoginException("Person logged in is a admin not member ");
+//		}
+//		}else {
+//			throw new LoginException("To book appointment login first ");
+//		} 
+			return null;
 	}
 
 	@Override
 	public Appointment updateAppointment(Appointment app, String key, String adharNo,int vaccinationCentercode)
 			throws MemberException, AppointmentException, LoginException,VaccinationCenterException  {
-		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
-		if(loggedInUser!=null) {
-		if(loggedInUser.getAdmin()==false) {
-			
-			
-			Member mm = memberRepo.findByAdharcardNo(adharNo);
-			if (mm == null) {
-				throw new MemberException("No member found with this aadhaar card number ");
-			}else {
-				VaccineRegistration vaccineRegistration = vaccineRegistrationRepo.findBymobileno(app.getMobileNo());
-				if(vaccineRegistration.getMember().contains(mm)) {
-					
-					
-					if(mm.isDose1status()) {
-						mm.setDose2status(app.isBookingstatus());
-					}else {
-						mm.setDose1date(app.getDatofbooking());
-						mm.setDose1status(app.isBookingstatus());
-						mm.setDose2date(app.getDatofbooking().plusMonths(3));
-					}
-					memberRepo.save(mm);
-					app.setMember(mm);
-					Optional<VaccinationCenter> vc = vaccinationCenterRepo.findById(vaccinationCentercode);
-					if(vc.isPresent()) {
-						app.setVaccinationcenter(vc.get());
-						vc.get().getAppointments().add(app);
-						appointmentRepo.save(app);
-						return app;
-					}else {
-						throw new VaccinationCenterException("No vaccination center found with this vaccination center code ");
-					}
-				}else {
-					throw new MemberException("Invalid mobile number ");	
-				}
-			}
-		}else{
-			throw new LoginException("Person logged in is a admin not member ");
-		}
-		}else {
-			throw new LoginException("To book appointment login first ");
-		}
+//		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
+//		if(loggedInUser!=null) {
+//		if(loggedInUser.getAdmin()==false) {
+//			
+//			
+//			Member mm = memberRepo.findByAdharcardNo(adharNo);
+//			if (mm == null) {
+//				throw new MemberException("No member found with this aadhaar card number ");
+//			}else {
+//				VaccineRegistration vaccineRegistration = vaccineRegistrationRepo.findBymobileno(app.getMobileNo());
+//				if(vaccineRegistration.getMember().contains(mm)) {
+//					
+//					
+//					if(mm.isDose1status()) {
+//						mm.setDose2status(app.isBookingstatus());
+//					}else {
+//						mm.setDose1date(app.getDatofbooking());
+//						mm.setDose1status(app.isBookingstatus());
+//						mm.setDose2date(app.getDatofbooking().plusMonths(3));
+//					}
+//					memberRepo.save(mm);
+//					app.setMember(mm);
+//					Optional<VaccinationCenter> vc = vaccinationCenterRepo.findById(vaccinationCentercode);
+//					if(vc.isPresent()) {
+//						app.setVaccinationcenter(vc.get());
+//						vc.get().getAppointments().add(app);
+//						appointmentRepo.save(app);
+//						return app;
+//					}else {
+//						throw new VaccinationCenterException("No vaccination center found with this vaccination center code ");
+//					}
+//				}else {
+//					throw new MemberException("Invalid mobile number ");	
+//				}
+//			}
+//		}else{
+//			throw new LoginException("Person logged in is a admin not member ");
+//		}
+//		}else {
+//			throw new LoginException("To book appointment login first ");
+//		} 
+		return null;
 	}
 
 	@Override
 	public Appointment deleteAppointment(Appointment app, String key, String adharNo,int vaccinationCentercode)
 			throws MemberException, AppointmentException, LoginException,VaccinationCenterException  {
-		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
-		if(loggedInUser!=null) {
-		if(loggedInUser.getAdmin()==false) {
-			
-			
-			Member mm = memberRepo.findByAdharcardNo(adharNo);
-			if (mm == null) {
-				throw new MemberException("No member found with this aadhaar card number ");
-			}else {
-				VaccineRegistration vaccineRegistration = vaccineRegistrationRepo.findBymobileno(app.getMobileNo());
-				if(vaccineRegistration.getMember().contains(mm)) {
-					
-					
-					if(mm.isDose1status()) {
-						mm.setDose2status(false);
-					}else {
-						mm.setDose1date(null);
-						mm.setDose1status(false);
-						mm.setDose2date(null);
-					}
-					mm.setAppointment(null);
-					memberRepo.save(mm);
-					app.setMember(mm);
-					Optional<VaccinationCenter> vc = vaccinationCenterRepo.findById(vaccinationCentercode);
-					if(vc.isPresent()) {
-						app.setVaccinationcenter(vc.get());
-						vc.get().getAppointments().remove(app);
-						appointmentRepo.delete(app);
-						return app;
-					}else {
-						throw new VaccinationCenterException("No vaccination center found with this vaccination center code ");
-					}
-				}else {
-					throw new MemberException("Invalid mobile number ");	
-				}
-			}
-		}else{
-			throw new LoginException("Person logged in is a admin not member ");
-		}
-		}else {
-			throw new LoginException("To book appointment login first ");
-		}
+//		CurrentUserSession loggedInUser = currentUserSessionRepo.findByUuid(key);
+//		if(loggedInUser!=null) {
+//		if(loggedInUser.getAdmin()==false) {
+//			
+//			
+//			Member mm = memberRepo.findByAdharcardNo(adharNo);
+//			if (mm == null) {
+//				throw new MemberException("No member found with this aadhaar card number ");
+//			}else {
+//				VaccineRegistration vaccineRegistration = vaccineRegistrationRepo.findBymobileno(app.getMobileNo());
+//				if(vaccineRegistration.getMember().contains(mm)) {
+//					
+//					
+//					if(mm.isDose1status()) {
+//						mm.setDose2status(false);
+//					}else {
+//						mm.setDose1date(null);
+//						mm.setDose1status(false);
+//						mm.setDose2date(null);
+//					}
+//					mm.setAppointment(null);
+//					memberRepo.save(mm);
+//					app.setMember(mm);
+//					Optional<VaccinationCenter> vc = vaccinationCenterRepo.findById(vaccinationCentercode);
+//					if(vc.isPresent()) {
+//						app.setVaccinationcenter(vc.get());
+//						vc.get().getAppointments().remove(app);
+//						appointmentRepo.delete(app);
+//						return app;
+//					}else {
+//						throw new VaccinationCenterException("No vaccination center found with this vaccination center code ");
+//					}
+//				}else {
+//					throw new MemberException("Invalid mobile number ");	
+//				}
+//			}
+//		}else{
+//			throw new LoginException("Person logged in is a admin not member ");
+//		}
+//		}else {
+//			throw new LoginException("To book appointment login first ");
+//		} 
+		return null;
+		
 	}
 
 	@Override

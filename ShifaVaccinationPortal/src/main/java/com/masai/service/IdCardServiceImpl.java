@@ -84,7 +84,7 @@ public class IdCardServiceImpl implements IdCardService{
 	@Override
 	public IdCard findIdCardBypanNo(String panNo) throws IdCardException, PanCardException {
 
-		PanCard pacrdno = panCardRepo.findBypanoNo(panNo);
+		PanCard pacrdno = panCardRepo.findBypanNo(panNo);
 		if (pacrdno == null) {
 			throw new PanCardException("No user found with this pan card number ");
 		}else {

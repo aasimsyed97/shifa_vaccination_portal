@@ -22,24 +22,24 @@ public class IdCard {
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int Id;
+	private Integer Id;
 	
-	@Size(min = 2, max = 20, message = "{user.invalid.Name}")
+	//@Size(min = 2, max = 20, message = "{user.invalid.Name}")
 	private String Name;
 	
 	private LocalDate DateOfBirth ;
 
-	@NotNull(message="Gender can't be null")
+	//@NotNull(message="Gender can't be null")
 	@Enumerated(EnumType.STRING)
 	private Gender gender;
 	
-	@Size(min = 2, max = 20, message = "{user.invalid.Address}")
+	//@Size(min = 2, max = 20, message = "{user.invalid.Address}")
 	private String Address ;
 	
-	@Size(min = 2, max = 20, message = "{user.invalid.City}")
+	//@Size(min = 2, max = 20, message = "{user.invalid.City}")
 	private String city ;
 	
-	@Size(min = 2, max = 20, message = "{user.invalid.State}")
+	//@Size(min = 2, max = 20, message = "{user.invalid.State}")
 	private String State ;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -59,7 +59,7 @@ public class IdCard {
 	}
 
 
-	public IdCard(int id, @Size(min = 2, max = 20, message = "{user.invalid.Name}") String name, LocalDate dateOfBirth,
+	public IdCard(Integer id, @Size(min = 2, max = 20, message = "{user.invalid.Name}") String name, LocalDate dateOfBirth,
 			@NotNull(message = "Gender can't be null") Gender gender,
 			@Size(min = 2, max = 20, message = "{user.invalid.Address}") String address,
 			@Size(min = 2, max = 20, message = "{user.invalid.City}") String city,
@@ -79,12 +79,12 @@ public class IdCard {
 	}
 
 
-	public int getId() {
+	public Integer getId() {
 		return Id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		Id = id;
 	}
 

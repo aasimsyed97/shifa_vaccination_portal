@@ -19,7 +19,7 @@ public class PanCard {
 	
 	//@Size(min = 10, max = 10, message = "{user.invalid.panNumber}")
 	@Column(unique = true)
-	private String panoNo;
+	private String panNo;
 	
 	@OneToOne(cascade = CascadeType.ALL,mappedBy = "panCard")
 	@JsonIgnore
@@ -30,11 +30,19 @@ public class PanCard {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PanCard(int panId, String panoNo, IdCard idCard) {
+	public PanCard(int panId, String panNo, IdCard idCard) {
 		super();
 		this.panId = panId;
-		this.panoNo = panoNo;
+		this.panNo = panNo;
 		this.idCard = idCard;
+	}
+ 
+	public String getPanNo() {
+		return panNo;
+	}
+
+	public void setPanNo(String panNo) {
+		this.panNo = panNo;
 	}
 
 	public int getPanId() {
@@ -43,14 +51,6 @@ public class PanCard {
 
 	public void setPanId(int panId) {
 		this.panId = panId;
-	}
-
-	public String getPanoNo() {
-		return panoNo;
-	}
-
-	public void setPanoNo(String panoNo) {
-		this.panoNo = panoNo;
 	}
 
 	public IdCard getIdCard() {
@@ -63,7 +63,7 @@ public class PanCard {
 
 	@Override
 	public String toString() {
-		return "PanCard [panId=" + panId + ", panoNo=" + panoNo + ", idCard=" + idCard + "]";
+		return "PanCard [panId=" + panId + ", panoNo=" + panNo + ", idCard=" + idCard + "]";
 	}
 
 	

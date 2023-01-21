@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 public class VaccineRegistration {
@@ -19,6 +21,7 @@ public class VaccineRegistration {
 	  private Long mobileNo;
 	 private LocalDate dateofregistration; 
 	 
+	 @JsonIgnore
 	 @OneToMany(mappedBy="vaccineregistration", cascade = CascadeType.ALL )
 	 private List<Member> memberlist = new ArrayList<Member>();
 
@@ -49,7 +52,8 @@ public class VaccineRegistration {
 	public void setDateofregistration(LocalDate dateofregistration) {
 		this.dateofregistration = dateofregistration;
 	}
-
+ 
+	
 	public List<Member> getMemberlist() {
 		return memberlist;
 	}

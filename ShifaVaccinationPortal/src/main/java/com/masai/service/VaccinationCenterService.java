@@ -1,6 +1,6 @@
 package com.masai.service;
 
-import java.util.List;
+import java.util.List; 
 
 import com.masai.exception.VaccinationCenterException;
 import com.masai.model.VaccinationCenter;

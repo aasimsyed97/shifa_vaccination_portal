@@ -8,4 +8,8 @@ import com.masai.model.PanCard;
 @Repository
 public interface PanCardRepo extends JpaRepository<PanCard, Integer>{
 	public PanCard findBypanoNo(String panoNo);
+
 }
+
+
+

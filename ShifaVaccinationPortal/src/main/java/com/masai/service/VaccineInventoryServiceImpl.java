@@ -10,17 +10,18 @@ import org.springframework.stereotype.Service;
 import com.masai.exception.VaccineInventoryException;
 import com.masai.model.Vaccine;
 import com.masai.model.VaccineInventory;
-import com.masai.repository.VaccineInventryRepo;
+import com.masai.repository.VaccineInventoryRepo;
+
 
 @Service
-public class VaccineInventryServiceImpl implements VaccineInventryService{
+public class VaccineInventoryServiceImpl implements VaccineInventoryService{
 	
 
     @Autowired
-	private VaccineInventryRepo inventryRepo;
+	private VaccineInventoryRepo inventryRepo;
     
 	@Override
-	public List<VaccineInventory> allVaccineInventry() {
+	public List<VaccineInventory> allVaccineInventory() {
        List<VaccineInventory> inventories=inventryRepo.findAll();
        if(inventories.isEmpty()) {
     	   throw new VaccineInventoryException("Vaccine Inventry data nou found...");
@@ -33,7 +34,7 @@ public class VaccineInventryServiceImpl implements VaccineInventryService{
 	
 	
 	@Override
-	public VaccineInventory getVaccineInventryByCentre(Integer centreId) throws VaccineInventoryException {
+	public VaccineInventory getVaccineInventoryByCentre(Integer centreId) throws VaccineInventoryException {
 		//VaccineInventory inventory=inventryRepo.findB
 		// TODO Auto-generated method stub
 		return null;
@@ -55,8 +56,8 @@ public class VaccineInventryServiceImpl implements VaccineInventryService{
 	
 	
 	@Override
-	public VaccineInventory updateVaccineInventry(VaccineInventory inventory) throws VaccineInventoryException {
-		Optional<VaccineInventory> inventory2=inventryRepo.findById(inventory.getDate());
+	public VaccineInventory updateVaccineInventory(VaccineInventory inventory) throws VaccineInventoryException {
+		Optional<VaccineInventory> inventory2=inventryRepo.findById(inventory.getVaccineInventoryId());
 		if(inventory2.isEmpty()) {
 			VaccineInventory inventory3=inventory2.get();
 			return inventryRepo.save(inventory3);
@@ -69,8 +70,8 @@ public class VaccineInventryServiceImpl implements VaccineInventryService{
 	
 	
 	@Override
-	public VaccineInventory deleteVaccineInventry(VaccineInventory vaccineInventory) throws VaccineInventoryException {
-		Optional<VaccineInventory> inventory2=inventryRepo.findById(vaccineInventory.getDate());
+	public VaccineInventory deleteVaccineInventory(VaccineInventory vaccineInventory) throws VaccineInventoryException {
+		Optional<VaccineInventory> inventory2=inventryRepo.findById(vaccineInventory.getVaccineInventoryId());
 		if(inventory2.isEmpty()) {
 			new VaccineInventoryException("VaccineInvenry Data not Found...");
 		}
@@ -80,9 +81,8 @@ public class VaccineInventryServiceImpl implements VaccineInventryService{
 		
 		
 	}
-
 	@Override
-	public List<VaccineInventory> getVaccineInventryByDate(LocalDate date) throws VaccineInventoryException {
+	public List<VaccineInventory> getVaccineInventoryByDate(LocalDate date) throws VaccineInventoryException {
 		List<VaccineInventory> list=inventryRepo.findByDate(date);
 		if(list.isEmpty()) {
 			throw new VaccineInventoryException("Vacciniation Inventry data not found...");
@@ -93,10 +93,12 @@ public class VaccineInventryServiceImpl implements VaccineInventryService{
 	}
 
 	@Override
-	public List<VaccineInventory> getVaccineInventryByVaccine(Vaccine vaccine) throws VaccineInventoryException {
+	public List<VaccineInventory> getVaccineInventoryByVaccine(Vaccine vaccine) throws VaccineInventoryException {
 		
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 
 }

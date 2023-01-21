@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class VaccineRegistration {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int registrationId;
+	private Integer registrationId;
 	
 	//@Pattern(regexp = "^[0-9]{10}", message = "{user.invalid.contact}")
 	@Column(unique = true)
@@ -41,7 +41,7 @@ public class VaccineRegistration {
 	}
 
 
-	public VaccineRegistration(int registrationId, String mobileno, LocalDate dateofregistration, List<Member> member,
+	public VaccineRegistration(Integer registrationId, String mobileno, LocalDate dateofregistration, List<Member> member,
 			String password) {
 		super();
 		this.registrationId = registrationId;
@@ -52,12 +52,12 @@ public class VaccineRegistration {
 	}
 
 
-	public int getRegistrationId() {
+	public Integer getRegistrationId() {
 		return registrationId;
 	}
 
 
-	public void setRegistrationId(int registrationId) {
+	public void setRegistrationId(Integer registrationId) {
 		this.registrationId = registrationId;
 	}
 

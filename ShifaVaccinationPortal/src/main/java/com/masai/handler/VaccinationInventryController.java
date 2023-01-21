@@ -17,18 +17,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.masai.model.VaccineInventory;
-import com.masai.service.VaccineInventryService;
+import com.masai.service.VaccineInventoryService;
 
 @RestController
 public class VaccinationInventryController {
 	
 	@Autowired
-	private VaccineInventryService inventryService;
+	private VaccineInventoryService inventryService;
 	
 	@GetMapping("/vaccinationInventry")
 	public ResponseEntity<List<VaccineInventory>> getAllVaccineInventry(){
 		 
-		List<VaccineInventory> inventories=inventryService.allVaccineInventry();
+		List<VaccineInventory> inventories=inventryService.allVaccineInventory();
 		return new ResponseEntity<List<VaccineInventory>>(inventories,HttpStatus.ACCEPTED);
 	}
 
@@ -44,7 +44,7 @@ public class VaccinationInventryController {
 	@PutMapping("/vaccinationInventry")
 	public ResponseEntity<VaccineInventory> updateVaccineInventry(@Valid @RequestBody VaccineInventory inventory){
 		 
-		VaccineInventory inventories=inventryService.updateVaccineInventry(inventory);
+		VaccineInventory inventories=inventryService.updateVaccineInventory(inventory);
 		return new ResponseEntity<VaccineInventory>(inventories,HttpStatus.ACCEPTED);
 	}
 	
@@ -52,7 +52,7 @@ public class VaccinationInventryController {
 	@DeleteMapping("/vaccinationInventry")
 	public ResponseEntity<VaccineInventory> deleteVaccineInventry(@Valid @RequestBody VaccineInventory inventory){
 		 
-		VaccineInventory inventories=inventryService.deleteVaccineInventry(inventory);
+		VaccineInventory inventories=inventryService.deleteVaccineInventory(inventory);
 		return new ResponseEntity<VaccineInventory>(inventories,HttpStatus.ACCEPTED);
 	}
 	
@@ -60,7 +60,7 @@ public class VaccinationInventryController {
 	@PutMapping("/vaccinationInventry/{date}")
 	public ResponseEntity<List<VaccineInventory>> getVaccineInventryBydate(@PathVariable("date") LocalDate inventory){
 		 
-		List<VaccineInventory> inventories=inventryService.getVaccineInventryByDate(inventory);
+		List<VaccineInventory> inventories=inventryService.getVaccineInventoryByDate(inventory);
 		return new ResponseEntity<List<VaccineInventory>>(inventories,HttpStatus.ACCEPTED);
 	}
 

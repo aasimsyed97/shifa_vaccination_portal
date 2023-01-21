@@ -1,54 +1,21 @@
 
-package com.masai.service;
-
-import java.util.List;
 
 
-import com.masai.exception.VaccinationRegistrationException;
-import com.masai.model.*;
-
-public interface VaccinationRegisterService {
-  public List<VaccineRegistration> allVaccinationRegistrations() throws VaccinationRegistrationException;
-  public VaccineRegistration getVaccinationRegistration(Long mobileNo) throws VaccinationRegistrationException;
-  public List<Member> getAllMember() throws VaccinationRegistrationException;
-  public VaccineRegistration addVaccineRegistration(VaccineRegistration registration) throws VaccinationRegistrationException;
-  public VaccineRegistration updateVaccineRegistration(VaccineRegistration vaccineRegistration) throws VaccinationRegistrationException;
-  public boolean deleteVaccineRegistration(Long mobileNo) throws VaccinationRegistrationException;
-  
-}
-
-
-//package com.masai.service;
-//
-//import java.util.List;
-//
-//import com.masai.exception.VaccinationRegistrationException;
-//import com.masai.model.*;
-//
-//public interface VaccinationRegisterService {
-//  public List<VaccineRegistration> allVaccinationRegistrations() throws VaccinationRegistrationException;
-//  public VaccineRegistration getVaccinationRegistration(Long mobileNo) throws VaccinationRegistrationException;
-//  public List<Member> getAllMember() throws VaccinationRegistrationException;
-//  public VaccineRegistration addVaccineRegistration(VaccineRegistration registration) throws VaccinationRegistrationException;
-//  public VaccineRegistration updateVaccineRegistration(VaccineRegistration vaccineRegistration) throws VaccinationRegistrationException;
-//  public boolean deleteVaccineRegistration(Long mobileNo) throws VaccinationRegistrationException;
-//  
-//}
 
 package com.masai.service;
 
 import java.util.List;
 
-import com.masai.exception.VaccinationRegistrationException;
+import com.masai.exception.VaccineRegistrationException;
 import com.masai.model.*;
 
 public interface VaccinationRegisterService {
-  public List<VaccineRegistration> allVaccinationRegistrations() throws VaccinationRegistrationException;
-  public VaccineRegistration getVaccinationRegistration(Long mobileNo) throws VaccinationRegistrationException;
-  public List<Member> getAllMember() throws VaccinationRegistrationException;
-  public VaccineRegistration addVaccineRegistration(VaccineRegistration registration) throws VaccinationRegistrationException;
-  public VaccineRegistration updateVaccineRegistration(VaccineRegistration vaccineRegistration) throws VaccinationRegistrationException;
-  public boolean deleteVaccineRegistration(Long mobileNo) throws VaccinationRegistrationException;
+  public List<VaccineRegistration> allVaccinationRegistrations() throws VaccineRegistrationException;
+  public VaccineRegistration getVaccinationRegistration(Long mobileNo) throws VaccineRegistrationException;
+  public List<Member> getAllMember() throws VaccineRegistrationException;
+  public VaccineRegistration addVaccineRegistration(VaccineRegistration registration) throws VaccineRegistrationException;
+  public VaccineRegistration updateVaccineRegistration(VaccineRegistration vaccineRegistration) throws VaccineRegistrationException;
+  public boolean deleteVaccineRegistration(Long mobileNo) throws VaccineRegistrationException;
   
 }
 

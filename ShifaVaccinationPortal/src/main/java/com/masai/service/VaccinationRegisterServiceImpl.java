@@ -133,11 +133,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.masai.exception.VaccinationCenterException;
-import com.masai.exception.VaccinationRegistrationException;
+import com.masai.exception.VaccineRegistrationException;
 import com.masai.model.Member;
 import com.masai.model.VaccinationCenter;
 import com.masai.model.VaccineRegistration;
-import com.masai.repository.VaccinationRegisterRepo;
+import com.masai.repository.VaccineRegisterationRepo;
 
 @Service
 
@@ -145,17 +145,17 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 	
 	
 	@Autowired
-	VaccinationRegisterRepo vaccinationRegisterRepo;
+	VaccineRegisterationRepo vaccinationRegisterRepo;
 	
 	
 	
 	@Override
-	public List<VaccineRegistration> allVaccinationRegistrations() throws VaccinationRegistrationException {
+	public List<VaccineRegistration> allVaccinationRegistrations() throws VaccineRegistrationException {
 		
 	List<VaccineRegistration> vaccineRegistrations=	vaccinationRegisterRepo.findAll();
 	
 	if(vaccineRegistrations.isEmpty()) {
-		throw new VaccinationRegistrationException("VaccinationRegistrations Data not find..");
+		throw new VaccineRegistrationException("VaccinationRegistrations Data not find..");
 	}else {
 		return vaccineRegistrations;
 	}
@@ -166,11 +166,11 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 	
 	
 	@Override
-	public VaccineRegistration getVaccinationRegistration(Long mobileNo) throws VaccinationRegistrationException {
+	public VaccineRegistration getVaccinationRegistration(Long mobileNo) throws VaccineRegistrationException {
 		    
 	   Optional<VaccineRegistration> optional=vaccinationRegisterRepo.findById(mobileNo);
 	   if(optional.isEmpty()) {
-		   throw new VaccinationRegistrationException("VaccinationRegistration data not find by mobile number..");
+		   throw new VaccineRegistrationException("VaccinationRegistration data not find by mobile number..");
 	   }else {
 		   VaccineRegistration vaccineRegistration=optional.get();
 		   return vaccineRegistration;
@@ -181,10 +181,10 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 	
 
 	@Override
-	public List<Member> getAllMember() throws VaccinationRegistrationException {
+	public List<Member> getAllMember() throws VaccineRegistrationException {
 		List<VaccineRegistration> vaccineRegistrations=vaccinationRegisterRepo.findAll();
 		if(vaccineRegistrations.isEmpty()) {
-			throw new VaccinationRegistrationException("Member data not find...");
+			throw new VaccineRegistrationException("Member data not find...");
 		}else {
 			
 		List<Member> memberList=new ArrayList<>();
@@ -201,11 +201,11 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 	
 	
 	@Override
-	public VaccineRegistration addVaccineRegistration(VaccineRegistration registration)throws VaccinationRegistrationException {
+	public VaccineRegistration addVaccineRegistration(VaccineRegistration registration)throws VaccineRegistrationException {
 		
 	   VaccineRegistration vaccineRegistration=vaccinationRegisterRepo.save(registration);
 	   if(vaccineRegistration==null) {
-		   throw new VaccinationRegistrationException("VaccinationRegister data not saved..");
+		   throw new VaccineRegistrationException("VaccinationRegister data not saved..");
 	   }else {
 		   return vaccineRegistration;
 	   }
@@ -216,7 +216,7 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 	
 	
 	@Override
-	public VaccineRegistration updateVaccineRegistration(VaccineRegistration vaccineRegistration)throws VaccinationRegistrationException {
+	public VaccineRegistration updateVaccineRegistration(VaccineRegistration vaccineRegistration)throws VaccineRegistrationException {
 	   
 		Optional<VaccineRegistration> optional=vaccinationRegisterRepo.findById(vaccineRegistration.getMobileNo());
 		if(optional.isEmpty()) {
@@ -224,7 +224,7 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 			vaccinationRegisterRepo.save(registration);
 			return registration;
 		}else {
-			throw new VaccinationRegistrationException("VaccinationRegistration Data not updated..");
+			throw new VaccineRegistrationException("VaccinationRegistration Data not updated..");
 		}
 	}
 
@@ -232,10 +232,10 @@ public class VaccinationRegisterServiceImpl implements VaccinationRegisterServic
 	
 	
 	@Override
-	public boolean deleteVaccineRegistration(Long mobileNo) throws VaccinationRegistrationException {
+	public boolean deleteVaccineRegistration(Long mobileNo) throws VaccineRegistrationException {
 		Optional<VaccineRegistration> optional=vaccinationRegisterRepo.findById(mobileNo);
 		if(optional.isEmpty()) {
-			throw new VaccinationRegistrationException("VaccinationRegistration data not deleted...");
+			throw new VaccineRegistrationException("VaccinationRegistration data not deleted...");
 		}else {
 			VaccineRegistration registration=optional.get();
 			vaccinationRegisterRepo.delete(registration);

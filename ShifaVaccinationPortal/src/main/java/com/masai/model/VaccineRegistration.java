@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,59 +17,97 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class VaccineRegistration {
-   
-	 @Id
-	  private Long mobileNo;
-	 private LocalDate dateofregistration; 
-	 
-	 @JsonIgnore
-	 @OneToMany(mappedBy="vaccineregistration", cascade = CascadeType.ALL )
-	 private List<Member> memberlist = new ArrayList<Member>();
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int registrationId;
+	
+	//@Pattern(regexp = "^[0-9]{10}", message = "{user.invalid.contact}")
+	@Column(unique = true)
+	private String mobileno;
+	
+	private LocalDate  dateofregistration = LocalDate.now();
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Member> member = new ArrayList<Member>();
+
+	
+	//@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",message = "{user.invalid.password}")
+	private String Password;
+
 
 	public VaccineRegistration() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public VaccineRegistration(Long mobileNo, LocalDate dateofregistration, List<Member> memberlist) {
+
+	public VaccineRegistration(int registrationId, String mobileno, LocalDate dateofregistration, List<Member> member,
+			String password) {
 		super();
-		this.mobileNo = mobileNo;
+		this.registrationId = registrationId;
+		this.mobileno = mobileno;
 		this.dateofregistration = dateofregistration;
-		this.memberlist = memberlist;
+		this.member = member;
+		Password = password;
 	}
 
-	public Long getMobileNo() {
-		return mobileNo;
+
+	public int getRegistrationId() {
+		return registrationId;
 	}
 
-	public void setMobileNo(Long mobileNo) {
-		this.mobileNo = mobileNo;
+
+	public void setRegistrationId(int registrationId) {
+		this.registrationId = registrationId;
 	}
+
+
+	public String getMobileno() {
+		return mobileno;
+	}
+
+
+	public void setMobileno(String mobileno) {
+		this.mobileno = mobileno;
+	}
+
 
 	public LocalDate getDateofregistration() {
 		return dateofregistration;
 	}
 
+
 	public void setDateofregistration(LocalDate dateofregistration) {
 		this.dateofregistration = dateofregistration;
 	}
- 
-	
-	public List<Member> getMemberlist() {
-		return memberlist;
+
+
+	public List<Member> getMember() {
+		return member;
 	}
 
-	public void setMemberlist(List<Member> memberlist) {
-		this.memberlist = memberlist;
+
+	public void setMember(List<Member> member) {
+		this.member = member;
 	}
+
+
+	public String getPassword() {
+		return Password;
+	}
+
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
 
 	@Override
 	public String toString() {
-		return "VaccineRegistration [mobileNo=" + mobileNo + ", dateofregistration=" + dateofregistration
-				+ ", memberlist=" + memberlist + "]";
-	} 
-	 
-	 
-	 
+		return "VaccineRegistration [registrationId=" + registrationId + ", mobileno=" + mobileno
+				+ ", dateofregistration=" + dateofregistration + ", member=" + member + ", Password=" + Password + "]";
+	}
+	
+	
 	 
 }

@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.masai.model.AdharCard;
 
+
+
+
 @Repository
-public interface AdharCardRepo extends JpaRepository<AdharCard, Integer>{
+public interface AdharCardRepo extends JpaRepository<AdharCard, Integer> {
+
 	public AdharCard findByadharNo(String adharNo);
 }

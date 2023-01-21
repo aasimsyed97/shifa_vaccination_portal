@@ -1,10 +1,16 @@
 package com.masai.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-
+@Entity
 public class AdharCard {
- 
-	private Long adharNo;
+    
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer adharNo;
 	private String fingerprint;
 	private String irisscan;
 	
@@ -13,14 +19,19 @@ public class AdharCard {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	
 	
-	public AdharCard(Long adharNo, String fingerprint, String irisscan) {
+
+
+	public AdharCard(Integer adharNo, String fingerprint, String irisscan) {
+
 		super();
 		this.adharNo = adharNo;
 		this.fingerprint = fingerprint;
 		this.irisscan = irisscan;
 	}
+
 	
 	
 	
@@ -29,6 +40,12 @@ public class AdharCard {
 	}
 	
 	public void setAdharNo(Long adharNo) {
+
+	public Integer getAdharNo() {
+		return adharNo;
+	}
+	public void setAdharNo(Integer adharNo) {
+
 		this.adharNo = adharNo;
 	}
 	

@@ -1,4 +1,4 @@
-package com.masai.DTO;
+package com.masai.dto;
 
 
 

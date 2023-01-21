@@ -5,12 +5,23 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+
 @Entity
 public class VaccineCount {
 
- 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+     private Integer vcId;
 	 private Integer quantity;
 	 private Double price;
 	 
@@ -26,13 +37,31 @@ public class VaccineCount {
 		// TODO Auto-generated constructor stub
 	}
 
-	public VaccineCount(Integer quantity, Double price, Vaccine vaccine, List<VaccineInventory> inventoryList) {
+
+
+	public VaccineCount(Integer vcId, Integer quantity, Double price, Vaccine vaccine,
+			List<VaccineInventory> inventoryList) {
 		super();
+		this.vcId = vcId;
 		this.quantity = quantity;
 		this.price = price;
 		this.vaccine = vaccine;
 		this.inventoryList = inventoryList;
 	}
+
+
+
+	public Integer getVcId() {
+		return vcId;
+	}
+
+
+
+	public void setVcId(Integer vcId) {
+		this.vcId = vcId;
+	}
+
+
 
 	public Integer getQuantity() {
 		return quantity;

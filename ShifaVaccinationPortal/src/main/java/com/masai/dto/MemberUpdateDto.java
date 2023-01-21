@@ -1,5 +1,6 @@
 package com.masai.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class MemberUpdateDto {
@@ -9,7 +10,7 @@ public class MemberUpdateDto {
 	//@Size(min = 2, max = 20, message = "{user.invalid.Name}")
 	private String Name;
 	
-	private Date DateOfBirth ;
+	private LocalDate DateOfBirth ;
 	
 	private String gender;
 	
@@ -29,7 +30,7 @@ public class MemberUpdateDto {
 
 	
 
-	public MemberUpdateDto(String name, Date dateOfBirth, String gender, String address, String city, String state) {
+	public MemberUpdateDto(String name, LocalDate dateOfBirth, String gender, String address, String city, String state) {
 		super();
 		Name = name;
 		DateOfBirth = dateOfBirth;
@@ -61,11 +62,11 @@ public class MemberUpdateDto {
 		Name = name;
 	}
 
-	public Date getDateOfBirth() {
+	public LocalDate getDateOfBirth() {
 		return DateOfBirth;
 	}
 
-	public void setDateOfBirth(Date dateOfBirth) {
+	public void setDateOfBirth(LocalDate dateOfBirth) {
 		DateOfBirth = dateOfBirth;
 	}
 

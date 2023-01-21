@@ -1,19 +1,21 @@
 package com.masai.service;
 
-import java.util.List; 
-
+import com.masai.exception.LoginException;
 import com.masai.exception.VaccinationCenterException;
+import com.masai.exception.VaccineInventoryException;
 import com.masai.model.VaccinationCenter;
-import com.masai.repository.VaccinationCenterRepo;
+import com.masai.model.VaccineInventory;
 
 public interface VaccinationCenterService {
  
+
+	public VaccinationCenter addVaccineCenter(String key, VaccinationCenter vaccinationCenter)throws VaccinationCenterException,LoginException;
 	
-	  public List<VaccinationCenter> getAllVaccinationCenter ();
-	  public VaccinationCenter getVaccinCenterById(Integer centerid)throws VaccinationCenterException;
-     public  VaccinationCenter addVaccinationCenter(VaccinationCenter center);
-     public  VaccinationCenter updateVaccinationCenter(VaccinationCenter center)throws VaccinationCenterException; 
-     public VaccinationCenter deleteVaccinationCenter(VaccinationCenter center)throws VaccinationCenterException;
+	public VaccinationCenter updateVaccineCenter(String key, int vaccinationCentercode, VaccineInventory vaccineInventory)throws VaccinationCenterException,VaccineInventoryException,LoginException;
+	
+	public VaccinationCenter deleteVaccineCenter(String key, int vaccinationCentercode)throws VaccinationCenterException,LoginException;
+	
+	public VaccinationCenter getVaccineCenter(int vaccinationCentercode)throws VaccinationCenterException;
 
 }
 

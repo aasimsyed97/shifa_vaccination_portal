@@ -1,6 +1,7 @@
 package com.masai.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
@@ -74,8 +75,8 @@ public class IdCard {
 		return dob;
 	}
 
-	public void setDob(LocalDate dob) {
-		this.dob = dob;
+	public void setDob(LocalDate date) {
+		this.dob = date;
 	}
 
 	public String getGender() {

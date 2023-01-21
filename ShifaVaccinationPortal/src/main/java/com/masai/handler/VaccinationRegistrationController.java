@@ -79,7 +79,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.masai.model.*;
-import com.masai.service.VaccinationRegisterService;
+import com.masai.service.VaccineRegistrationService;
 @RestController
 public class VaccinationRegistrationController {
 	

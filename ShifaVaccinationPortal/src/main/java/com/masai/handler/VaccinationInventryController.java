@@ -58,7 +58,7 @@ public class VaccinationInventryController {
 	
 	
 	@PutMapping("/vaccinationInventry/{date}")
-	public ResponseEntity<List<VaccineInventory>> getVaccineInventryBydate(@PathVariable LocalDate inventory){
+	public ResponseEntity<List<VaccineInventory>> getVaccineInventryBydate(@PathVariable("date") LocalDate inventory){
 		 
 		List<VaccineInventory> inventories=inventryService.getVaccineInventryByDate(inventory);
 		return new ResponseEntity<List<VaccineInventory>>(inventories,HttpStatus.ACCEPTED);

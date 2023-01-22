@@ -1,5 +1,5 @@
-# Shifa_Vaccination_Portal
-<h1 align=center>Foodu</h1>
+# 
+<h1 align=center>Shifa_Vaccination_Portal</h1>
 <div align=center><img  src="./assets.Shifa Vaccination.png"></div>
 <h3 align=center>  Wellcome To Shifa_Vaccination_Portal </h3>
 # REST API for Covid Vaccination Platform

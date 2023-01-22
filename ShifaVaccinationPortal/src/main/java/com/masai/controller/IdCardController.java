@@ -23,37 +23,37 @@ import com.masai.model.IdCard;
 import com.masai.service.IdCardService;
 
 @RestController
-@RequestMapping("/usearController")
+@RequestMapping("/userController")
 public class IdCardController {
 	@Autowired
-	private IdCardService usearServices;
+	private IdCardService userServices;
 	
 	
 	
-	@PostMapping("/usearsignup/{key}")
+	@PostMapping("/usersignup/{key}")
 	public ResponseEntity<IdCard> registerIdCardHandler(@Valid @RequestBody IdCard user,@PathVariable("key") String key) throws IdCardException, LoginException, MemberException, VaccineRegistrationException {
 
-		IdCard savedUser = usearServices.addIdCard(key, user);
+		IdCard savedUser = userServices.addIdCard(key, user);
 
 		return new ResponseEntity<IdCard>(savedUser, HttpStatus.OK);
 
 	}
 	
-	@GetMapping("/usearsByAdhar")
+	@GetMapping("/usersByAdhar")
 	public ResponseEntity<IdCard> getIdCardByAdharHandler(@RequestParam("adharNo") String adharNo)
 			throws IdCardException, AdharCardException {
 
-		IdCard getUser = usearServices.findIdCardByAdharNo(adharNo);
+		IdCard getUser = userServices.findIdCardByAdharNo(adharNo);
 
 		return new ResponseEntity<IdCard>(getUser, HttpStatus.OK);
 
 	}
 	
-	@GetMapping("/usearsByPan")
+	@GetMapping("/usersByPan")
 	public ResponseEntity<IdCard> getIdCardByPanHandler(@RequestParam("panNo") String panNo)
 			throws PanCardException, IdCardException {
 
-		IdCard getUser = usearServices.findIdCardBypanNo(panNo);
+		IdCard getUser = userServices.findIdCardBypanNo(panNo);
 
 		return new ResponseEntity<IdCard>(getUser, HttpStatus.OK);
 

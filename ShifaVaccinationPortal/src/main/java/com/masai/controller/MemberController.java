@@ -68,7 +68,7 @@ public class MemberController {
 
 	}
 	
-	@GetMapping("/usearsByAdhar")
+	@GetMapping("/usersByAdhar")
 	public ResponseEntity<Member> getMemberByAdharNoHandler(@RequestParam("adharNo") String adharNo) throws MemberException, AdharCardException{
 
 		Member getUser = memberServices.getMemberByAdharNo(adharNo);
@@ -77,7 +77,7 @@ public class MemberController {
 
 	}
 	
-	@GetMapping("/usearsByPan")
+	@GetMapping("/usersByPan")
 	public ResponseEntity<Member> getUsearByPanHandler(@RequestParam("panNo") String panNo) throws MemberException, PanCardException{
 
 		Member getUser = memberServices.getMemberByPanNo(panNo);

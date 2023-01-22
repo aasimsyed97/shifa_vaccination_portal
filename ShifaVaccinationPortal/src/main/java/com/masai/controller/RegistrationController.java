@@ -77,7 +77,7 @@ public class RegistrationController {
 
 	}
 	
-	@PostMapping("/usearLogin")
+	@PostMapping("/userLogin")
 	public ResponseEntity<CurrentUserSession> loginUsearHandler(@Valid @RequestBody UserDto usr) throws LoginException {
 
 		CurrentUserSession res = vaccineRegistrationService.loginUsear(usr);
@@ -86,7 +86,7 @@ public class RegistrationController {
 
 	}
     
-	@PostMapping("/usearLogout/{key}")
+	@PostMapping("/userLogout/{key}")
 	public ResponseEntity<String> logoutAdminHandler(@PathVariable("key") String key) throws LoginException {
 
 		String res = vaccineRegistrationService.logoutUsear(key);

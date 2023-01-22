@@ -12,7 +12,7 @@ public class Admin {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int adminId;
+	private Integer adminId;
 	
 	//@Size(min = 2, max = 20, message = "{user.invalid.Name}")
 	private String adminName;
@@ -33,7 +33,7 @@ public class Admin {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Admin(int adminId, String adminName, String adminMobileNumber, String adminUsername, String adminPassword) {
+	public Admin(Integer adminId, String adminName, String adminMobileNumber, String adminUsername, String adminPassword) {
 		super();
 		this.adminId = adminId;
 		this.adminName = adminName;
@@ -42,11 +42,11 @@ public class Admin {
 		this.adminPassword = adminPassword;
 	}
 
-	public int getAdminId() {
+	public Integer getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(int adminId) {
+	public void setAdminId(Integer adminId) {
 		this.adminId = adminId;
 	}
 

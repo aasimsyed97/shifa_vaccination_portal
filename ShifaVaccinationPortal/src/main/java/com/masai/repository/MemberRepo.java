@@ -14,7 +14,7 @@ public interface MemberRepo extends JpaRepository<Member, Integer>{
 	
 ////@Query("from Member where IdCard.Id=:idcardid")
 //public Member findByidCard(@Param("idcardid") Integer idcardid);
-//
+
 ////@Query("from Member where IdCard.adharCard.adharNo=:adarno")
 //public Member findByAdharcardNo(@Param("adarno") String adarno);
 //

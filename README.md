@@ -1,6 +1,6 @@
 # 
 <h1 align=center>Shifa_Vaccination_Portal</h1>
-<div align=center><img  src="./assets.Shifa Vaccination.png"></div>
+<div align=center><img  src="./assets.png"></div>
 <h3 align=center>  Wellcome To Shifa_Vaccination_Portal </h3>
 # REST API for Covid Vaccination Platform
 

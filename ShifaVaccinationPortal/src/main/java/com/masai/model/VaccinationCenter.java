@@ -1,79 +1,62 @@
 package com.masai.model;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.OneToOne;
 
 
 @Entity
 public class VaccinationCenter {
      @Id
      @GeneratedValue(strategy= GenerationType.AUTO)
-	 private Integer vaccinationCentercode;
-     
-  
- //	@Size(min = 2, max = 20, message = "{VaccinationCenter.invalid.centername}")
- 	private String centername;
- 	
- 	//@Size(min = 2, max = 20, message = "{VaccinationCenter.invalid.address}")
- 	private String address;
- 	
- 	//@Size(min = 2, max = 20, message = "{VaccinationCenter.invalid.city}")
- 	private String city;
- 	
- 	//@Size(min = 2, max = 20, message = "{VaccinationCenter.invalid.state}")
- 	private String state;
- 	
- 	//@Size(min = 6, message = "{VaccinationCenter.invalid.pincode}")
- 	private String pincode;
- 	
- 	@OneToMany
- 	@JsonIgnore
- 	private List<Appointment> appointments;
- 	
- 	@OneToMany(cascade = CascadeType.ALL)
- 	private List<VaccineInventory> vaccineInventory;
+	 private Integer code;
+	 private String centerName;
+	 private String address;
+	 private String city;
+	 private String state;
+	 private String pincode;
+	 
+	 @OneToOne
+	 private Appointment apointment;
+	 
+	 @OneToOne(mappedBy="vaccinationcenter",cascade = CascadeType.ALL)
+	 private VaccineInventory vaccineinventory;
 
 	public VaccinationCenter() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public VaccinationCenter(Integer vaccinationCentercode, String centername, String address, String city,
-			String state, String pincode, List<Appointment> appointments, List<VaccineInventory> vaccineInventory) {
+	public VaccinationCenter(Integer code, String centerName, String address, String city, String state, String pincode,
+			Appointment apointment, VaccineInventory vaccineinventory) {
 		super();
-		this.vaccinationCentercode = vaccinationCentercode;
-		this.centername = centername;
+		this.code = code;
+		this.centerName = centerName;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.pincode = pincode;
-		this.appointments = appointments;
-		this.vaccineInventory = vaccineInventory;
+		this.apointment = apointment;
+		this.vaccineinventory = vaccineinventory;
 	}
 
-	public Integer getVaccinationCentercode() {
-		return vaccinationCentercode;
+	public Integer getCode() {
+		return code;
 	}
 
-	public void setVaccinationCentercode(Integer vaccinationCentercode) {
-		this.vaccinationCentercode = vaccinationCentercode;
+	public void setCode(Integer code) {
+		this.code = code;
 	}
 
-	public String getCentername() {
-		return centername;
+	public String getCenterName() {
+		return centerName;
 	}
 
-	public void setCentername(String centername) {
-		this.centername = centername;
+	public void setCenterName(String centerName) {
+		this.centerName = centerName;
 	}
 
 	public String getAddress() {
@@ -108,29 +91,31 @@ public class VaccinationCenter {
 		this.pincode = pincode;
 	}
 
-	public List<Appointment> getAppointments() {
-		return appointments;
+	public Appointment getApointment() {
+		return apointment;
 	}
 
-	public void setAppointments(List<Appointment> appointments) {
-		this.appointments = appointments;
+	public void setApointment(Appointment apointment) {
+		this.apointment = apointment;
 	}
 
-	public List<VaccineInventory> getVaccineInventory() {
-		return vaccineInventory;
+	public VaccineInventory getVaccineinventory() {
+		return vaccineinventory;
 	}
 
-	public void setVaccineInventory(List<VaccineInventory> vaccineInventory) {
-		this.vaccineInventory = vaccineInventory;
+	public void setVaccineinventory(VaccineInventory vaccineinventory) {
+		this.vaccineinventory = vaccineinventory;
 	}
 
 	@Override
 	public String toString() {
-		return "VaccinationCenter [vaccinationCentercode=" + vaccinationCentercode + ", centername=" + centername
-				+ ", address=" + address + ", city=" + city + ", state=" + state + ", pincode=" + pincode
-				+ ", appointments=" + appointments + ", vaccineInventory=" + vaccineInventory + "]";
-	} 
- 	
- 	
+		return "VaccinationCenter [code=" + code + ", centerName=" + centerName + ", address=" + address + ", city="
+				+ city + ", state=" + state + ", pincode=" + pincode + ", apointment=" + apointment
+				+ ", vaccineinventory=" + vaccineinventory + "]";
+	}
+	 
+	 
+	 
+	 
 	 
 }

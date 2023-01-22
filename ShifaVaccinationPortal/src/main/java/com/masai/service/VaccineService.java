@@ -7,15 +7,24 @@ import com.masai.exception.VaccineException;
 import com.masai.repository.VaccineRepo;
 
 public interface VaccineService {
-    public Vaccine getVaccineByName(String vaccineName) throws VaccineException;
+	
+    public List<Vaccine> getAllVaccine() throws VaccineException;
+	
+    public Vaccine getVaccinByName(String vaccineName);
 
-    public Vaccine getVaccineById(int vaccineId) throws VaccineException;
+	public Vaccine getVaccineById(Integer vaccineId) throws VaccineException;
 
-    public Vaccine addVaccine(Vaccine vaccine,String key) throws VaccineException,LoginException;
+	public Vaccine addVaccine(Vaccine vaccine ,String key) throws VaccineException,LoginException;
+	
+	public Vaccine updateVaccine(Vaccine vaccine,String key) throws VaccineException,LoginException;
+	
+	public boolean deleteVaccine(Vaccine vaccine,String key) throws VaccineException,LoginException;
 
-    public Vaccine updateVaccine(Vaccine vaccine,String key) throws VaccineException,LoginException;
+//	Vaccine addVaccine(Vaccine vaccine) throws VaccineException;
 
-    public String deleteVaccine(int vaccineId,String key) throws VaccineException,LoginException;
+//	Vaccine updateVaccine(Vaccine vaccine) throws VaccineException;
 
-    public List<Vaccine> getAllVaccine() throws  VaccineException;
+//	Vaccine deleteVaccine(Integer vaccineId) throws VaccineException;
+
+	//Integer getIdByName(String name) throws VaccineException;	
 }

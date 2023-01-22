@@ -1,36 +1,27 @@
 package com.masai.model;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
 public class VaccineInventory {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
-   private int vaccineInventoryId;
-   
 	private LocalDate date; 
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<VaccineCount> vaccineCount;
+	@ManyToOne
+	private  VaccineCount vaccinecount;
 	
 	
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JsonIgnore
-	private VaccinationCenter VaccinationCenter;
+	@OneToOne 
+	private VaccinationCenter vaccinationcenter;
 
 
 	public VaccineInventory() {
@@ -39,23 +30,11 @@ public class VaccineInventory {
 	}
 
 
-	public VaccineInventory(int vaccineInventoryId, LocalDate date, List<VaccineCount> vaccineCount,
-			com.masai.model.VaccinationCenter vaccinationCenter) {
+	public VaccineInventory(LocalDate date, VaccineCount vaccinecount, VaccinationCenter vaccinationcenter) {
 		super();
-		this.vaccineInventoryId = vaccineInventoryId;
 		this.date = date;
-		this.vaccineCount = vaccineCount;
-		VaccinationCenter = vaccinationCenter;
-	}
-
-
-	public int getVaccineInventoryId() {
-		return vaccineInventoryId;
-	}
-
-
-	public void setVaccineInventoryId(int vaccineInventoryId) {
-		this.vaccineInventoryId = vaccineInventoryId;
+		this.vaccinecount = vaccinecount;
+		this.vaccinationcenter = vaccinationcenter;
 	}
 
 
@@ -69,32 +48,31 @@ public class VaccineInventory {
 	}
 
 
-	public List<VaccineCount> getVaccineCount() {
-		return vaccineCount;
+	public VaccineCount getVaccinecount() {
+		return vaccinecount;
 	}
 
 
-	public void setVaccineCount(List<VaccineCount> vaccineCount) {
-		this.vaccineCount = vaccineCount;
+	public void setVaccinecount(VaccineCount vaccinecount) {
+		this.vaccinecount = vaccinecount;
 	}
 
 
-	public VaccinationCenter getVaccinationCenter() {
-		return VaccinationCenter;
+	public VaccinationCenter getVaccinationcenter() {
+		return vaccinationcenter;
 	}
 
 
-	public void setVaccinationCenter(VaccinationCenter vaccinationCenter) {
-		VaccinationCenter = vaccinationCenter;
+	public void setVaccinationcenter(VaccinationCenter vaccinationcenter) {
+		this.vaccinationcenter = vaccinationcenter;
 	}
 
 
 	@Override
 	public String toString() {
-		return "VaccineInventory [vaccineInventoryId=" + vaccineInventoryId + ", date=" + date + ", vaccineCount="
-				+ vaccineCount + ", VaccinationCenter=" + VaccinationCenter + "]";
-	}
-
+		return "VaccineInventory [date=" + date + ", vaccinecount=" + vaccinecount + ", vaccinationcenter="
+				+ vaccinationcenter + "]";
+	} 
 	
 	
 	

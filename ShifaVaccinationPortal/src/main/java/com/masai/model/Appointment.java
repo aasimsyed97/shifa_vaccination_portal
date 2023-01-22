@@ -9,28 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 @Entity
 public class Appointment {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Integer bookingId;
-	
-	private String mobileNo; 
-	
-	private LocalDate datofbooking; 
-	
-	//private String Slot; 
-	
+	private Long bookingId;
+	private Long mobileNo;
+	private LocalDate datofbooking;
+	private String Slot;
 	private boolean bookingstatus;
 	
-	@OneToOne( cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "appointment" , cascade = CascadeType.ALL)
 	private Member member;
 	 
-     @OneToOne (cascade = CascadeType.ALL) 
-     @JsonIgnore
+     @OneToOne (mappedBy = "apointment")
 	private VaccinationCenter vaccinationcenter;
 
 	public Appointment() {
@@ -38,30 +31,31 @@ public class Appointment {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Appointment(Integer bookingId, String mobileNo, LocalDate datofbooking, boolean bookingstatus, Member member,
-			VaccinationCenter vaccinationcenter) {
+	public Appointment(Long bookingId, Long mobileNo, LocalDate datofbooking, String slot, boolean bookingstatus,
+			Member member, VaccinationCenter vaccinationcenter) {
 		super();
 		this.bookingId = bookingId;
 		this.mobileNo = mobileNo;
 		this.datofbooking = datofbooking;
+		Slot = slot;
 		this.bookingstatus = bookingstatus;
 		this.member = member;
 		this.vaccinationcenter = vaccinationcenter;
 	}
 
-	public Integer getBookingId() {
+	public Long getBookingId() {
 		return bookingId;
 	}
 
-	public void setBookingId(Integer bookingId) {
+	public void setBookingId(Long bookingId) {
 		this.bookingId = bookingId;
 	}
 
-	public String getMobileNo() {
+	public Long getMobileNo() {
 		return mobileNo;
 	}
 
-	public void setMobileNo(String mobileNo) {
+	public void setMobileNo(Long mobileNo) {
 		this.mobileNo = mobileNo;
 	}
 
@@ -71,6 +65,14 @@ public class Appointment {
 
 	public void setDatofbooking(LocalDate datofbooking) {
 		this.datofbooking = datofbooking;
+	}
+
+	public String getSlot() {
+		return Slot;
+	}
+
+	public void setSlot(String slot) {
+		Slot = slot;
 	}
 
 	public boolean isBookingstatus() {
@@ -100,11 +102,9 @@ public class Appointment {
 	@Override
 	public String toString() {
 		return "Appointment [bookingId=" + bookingId + ", mobileNo=" + mobileNo + ", datofbooking=" + datofbooking
-				+ ", bookingstatus=" + bookingstatus + ", member=" + member + ", vaccinationcenter=" + vaccinationcenter
-				+ "]";
-	}
-
-
+				+ ", Slot=" + Slot + ", bookingstatus=" + bookingstatus + ", member=" + member + ", vaccinationcenter="
+				+ vaccinationcenter + "]";
+	} 
      
      
      

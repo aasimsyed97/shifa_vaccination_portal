@@ -1,22 +1,22 @@
 # Shifa_Vaccination_Portal
 <h1 align=center>Foodu</h1>
-<div align=center><img  src="./Logo/Foodu.png"></div>
-<h3 align=center>  Wellcome To Foodu App </h3>
-# REST API for an Online Food Application
+<div align=center><img  src="./assets.Shifa Vaccination.png"></div>
+<h3 align=center>  Wellcome To Shifa_Vaccination_Portal </h3>
+# REST API for Covid Vaccination Platform
 
-### This is a collaborative project, completed by a team of 4 Java backend developers at Masai School.
+### This is a collaborative project, completed by a team of 5 Java backend developers at Masai School.
 
-<li>We have developed this REST API for an Online Food Booking application. This API performs
-  all the fundamental CRUD operations of any Online Food Booking platform with user validation at every step.</li>
-<li>This project is developed by team of 4 Back-end Developers during project week in Masai School.</li>
+<li>We have developed this REST API for Covid Vaccination Platform. This API performs
+  all the fundamental CRUD operations of any Online Covid Vaccination platform with user validation at every step.</li>
+<li>This project is developed by team of 5 Back-end Developers during project week in Masai School.</li>
  
 <h3 align=center>  Team Members </h3>
 
-- [Satyajit Ray](https://github.com/Satyajit0007)
-- [Divya Gupta](https://github.com/Divya1327)
-- [Aasim Syed](https://github.com/Aasimsyed97)
-- [Piyush Kumar](https://github.com/piyushfromit)
-- [Pratyay Chakraborty](https://github.com/PratyayChakraborty)
+- [Aasim Syed ](https://github.com/Satyajit0007)
+- [Soham Doshi ](https://github.com/Divya1327)
+- [Nitesh ](https://github.com/Aasimsyed97)
+- [Ashish ](https://github.com/piyushfromit)
+- [ Abhijeet](https://github.com/PratyayChakraborty)
 
 # Tech Stack
 - Java
@@ -30,32 +30,9 @@
 
 # Modules
 
-- Login Module
-- Restaurant owner Module
-- Customer Module
-- OrderDetails Module
-- FoodCart Module
-- OrderItem Module
-- Bill Module
-
-- Category Module
-- FoodCart Module
-- Order and Bill Module
-
 # Features
 
-- Data Authentication and Validation for all the users (Restaurnat owner, Customer)
-
-## Owner Features
-- Owner can login by giving valid credentials.
-- Owner can add category and provide the item to the respective category. 
-- Owner can add the status and set the price.
-
-
-## Customer Features
-- Customer can login in the application and update their information using their username and password.
-- Customer can book food item using by adding into cart and destination.
-- Customer can access the bill after the purchase & can have the history is completed.
+- Data Authentication and Validation for all the users 
 
 
 # Installation & Run

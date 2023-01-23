@@ -24,7 +24,6 @@
 
 # Modules 
 
-=======
 > We have developed this REST API for an Online Covid-19 Vaccination Management System. This API performs all the fundamental CRUD operations of any Real life Covid-19 Vaccination Management platform with user validation at every step.
 > 
 > This project is developed by a team of 5 Back-End Developers in a span of 4 days during the construct week at [Masai School](https://masaischool.com/).
@@ -93,7 +92,7 @@
 
 # Overview of Our work 
 ## **ER Diagram**
-![ER diagram](https://user-images.githubusercontent.com/103619788/213905352-15c065ed-ba28-4082-8a55-22cebea4b8d2.png)
+![ER diagram](https://github.com/aasimsyed97/odd-expansion-8166/blob/main/assets/ER%20diagram.png?raw=true)
 
 
 

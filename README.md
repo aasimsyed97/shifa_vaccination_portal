@@ -39,7 +39,7 @@
 
 # Modules 
 
->>>>>>> 11d96ef0230798c9c9cc0b0f92427ef2b40939f7
+
 - Authentication Module  
 - Admin Module
 - User Module

@@ -1,58 +1,87 @@
+
+# Shifa_Vaccination_portal
+
 # 
 <h1 align=center>Shifa_Vaccination_Portal</h1>
 <div align=center><img  src="./assets.png"></div>
 <h3 align=center>  Wellcome To Shifa_Vaccination_Portal </h3>
 # REST API for Covid Vaccination Platform
 
-### This is a collaborative project, completed by a team of 5 Java backend developers at Masai School.
+<p align="center">
+  <img width="250" height="200" src="./assets.s.png">
+</p>
+<!-- ![Win_covid Logo](https://user-images.githubusercontent.com/107523890/213869160-f890c96d-3c6b-4a72-8f03-3b85ca930683.png) -->
 
-<li>We have developed this REST API for Covid Vaccination Platform. This API performs
-  all the fundamental CRUD operations of any Online Covid Vaccination platform with user validation at every step.</li>
-<li>This project is developed by team of 5 Back-end Developers during project week in Masai School.</li>
- 
-<h3 align=center>  Team Members </h3>
 
-- [Aasim Syed ](https://github.com/Satyajit0007)
-- [Soham Doshi ](https://github.com/Divya1327)
-- [Nitesh ](https://github.com/Aasimsyed97)
-- [Ashish ](https://github.com/piyushfromit)
-- [ Abhijeet](https://github.com/PratyayChakraborty)
+> We have developed this REST API for an Online Covid-19 Vaccination Management System. This API performs all the fundamental CRUD operations of any Real life Covid-19 Vaccination Management platform with user validation at every step.
+> 
+> This project is developed by a team of 5 Back-End Developers in a span of 4 days during the construct week at [Masai School](https://masaischool.com/).
+>
+>There are two type of users in this system : 
+> 
+> a. Admin
+>
+> b. User
+>
+> It is a project on creating a RESTful API.
+>
 
-# Tech Stack
+# Modules 
+
+- Authentication Module  
+- Admin Module
+- User Module
+- Vaccination Center Module
+- Vaccine Registration Module
+- Vaccine Module
+- Vaccine Inventory Module
+- Book Appointment Module
+
+# Features 
+
+### User Features 
+
+- User Registration
+- Add Multiple Member
+- View Dose Status Of Member
+- View Centers 
+- View  Slots
+- Book Appointment For Particular Date 
+- Many More ...
+
+### Admin Features 
+
+- Add/View Vaccine Centers
+- Manage Vaccine/Vaccine Inventory
+- View All Users, All Vaccine Centers, All Vaccines, All Vaccine Inventory, View All Appointments
+- Search User by Aadhar, Pan Details
+- Many More ...
+
+# Technology and Tools used 
+
 - Java
-- Spring Framework
+- MySQL
 - Spring Boot
 - Spring Data JPA
-- MySQL
-- Swagger UI
-- Lambok
+- Hibernate
+- lombok
+- Postman
+- Swagger
 - Maven
-
-# Modules
-
-# Features
-
-- Data Authentication and Validation for all the users 
+- Git & GitHub
+- Spring tool suite
 
 
-# Installation & Run
- - Before running the API server, you should update the database config inside the application.properties file.
-- Update the port number, username and password as per your local database configuration.
+# Lessons Learned
 
-```
-    server.port=8888
+- Gained knowledge on application of Java and Spring Boot.
+- learned to work in collaborative manner by resolving disagreements in order to achieve a common goal.
+- learned Pair programming technique  
 
-    spring.datasource.url=jdbc:mysql://localhost:3306/foodu_db;
-    spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-    spring.datasource.username=root
-    spring.datasource.password=root
-```
+# Overview of Our work 
+## **ER Diagram**
+![ER diagram](https://user-images.githubusercontent.com/103619788/213905352-15c065ed-ba28-4082-8a55-22cebea4b8d2.png)
 
-# API Root Endpoint
-```
-https://localhost:8888/
-```
-```
-http://localhost:8888/swagger-ui/
-```
-# API Reference
+
+
+

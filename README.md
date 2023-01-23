@@ -1,18 +1,30 @@
 
 # Shifa_Vaccination_portal
 
-# 
 <h1 align=center>Shifa_Vaccination_Portal</h1>
 <div align=center><img  src="https://raw.githubusercontent.com/aasimsyed97/odd-expansion-8166/main/assets/s.png?token=GHSAT0AAAAAAB4JS67FVOBYKCE6SLLP3SEGY6OGLOA"></div>
 <h3 align=center>  Wellcome To Shifa_Vaccination_Portal </h3>
-# REST API for Covid Vaccination Platform
 
-<p align="center">
-  <img width="250" height="200" src="./assets.s.png">
-</p>
+
 <!-- ![Win_covid Logo](https://user-images.githubusercontent.com/107523890/213869160-f890c96d-3c6b-4a72-8f03-3b85ca930683.png) -->
 
 
+> We have developed this REST API for an Online Covid-19 Vaccination Management System. This API performs all the fundamental CRUD operations of any Real life Covid-19 Vaccination Management platform with user validation at every step.
+> 
+> This project is developed by a team of 5 Back-End Developers in a span of 4 days during the construct week at [Masai School](https://masaischool.com/).
+>
+>There are two type of users in this system : 
+>
+> a. Admin
+>
+> b. User
+>
+> It is a project on creating a RESTful API.
+>
+
+# Modules 
+
+=======
 > We have developed this REST API for an Online Covid-19 Vaccination Management System. This API performs all the fundamental CRUD operations of any Real life Covid-19 Vaccination Management platform with user validation at every step.
 > 
 > This project is developed by a team of 5 Back-End Developers in a span of 4 days during the construct week at [Masai School](https://masaischool.com/).
@@ -28,6 +40,7 @@
 
 # Modules 
 
+>>>>>>> 11d96ef0230798c9c9cc0b0f92427ef2b40939f7
 - Authentication Module  
 - Admin Module
 - User Module
